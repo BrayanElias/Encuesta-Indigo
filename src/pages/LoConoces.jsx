@@ -5,21 +5,22 @@ const LoConoces = () => {
     const { selectedColaborador, avanzarPagina, retrocederPagina } = useEncuesta();
 
     return (
-        <div className="flex flex-col items-center justify-center w-full h-screen bg-white">
+        <div className="text-primaryColor flex flex-col items-center justify-center w-full h-screen bg-white">
             {/* Botón de regresar */}
             <button
                 onClick={retrocederPagina}
-                className="absolute top-10 left-10 flex items-center text-blue-600 border border-blue-600 rounded-full px-4 py-2">
-                <img src="/images/arrowleft.svg" alt="Volver" className="mr-2" />
+                className="absolute top-10 left-10 flex items-center text-primaryColor border
+                            border-[#3866F4] rounded-full px-4 py-2">
+                <img src="/images/arrow-left.svg" alt="Volver" className="mr-2" />
                 Volver
             </button>
 
             {/* Logo */}
-            <img className="w-[150px] h-auto mb-8" src="./images/logo-inteligo.png" alt="Logo Inteligo" />
+            <img className="w-[150px] h-auto rounded-xl mt-7 mb-20" src="./images/logo.png" alt="Logo" />
 
             {/* Pregunta dinámica */}
-            <h2 className="text-2xl font-semibold text-center mb-8">
-                ¿Conoces las actividades desempeñadas por <span className="text-blue-600">{selectedColaborador.nombre}?</span>
+            <h2 className="text-2xl font-normal text-center mb-8">
+                ¿Conoces las actividades desempeñadas por <span className='font-medium'>{selectedColaborador}</span>?
             </h2>
 
             {/* Opciones de respuesta */}
@@ -45,7 +46,7 @@ const LoConoces = () => {
 
             {/* Nombres de los colaboradores */}
             <div className="absolute bottom-5 w-full flex justify-between px-10 text-gray-400 text-sm">
-                <span>{selectedColaborador.nombre}</span>
+                <span>{selectedColaborador}</span>
                 <span>Manuel Zorochaqui</span>
                 <span>Carlos Palma</span>
             </div>
