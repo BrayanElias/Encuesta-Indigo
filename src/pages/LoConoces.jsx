@@ -2,7 +2,8 @@ import useEncuesta from '../hooks/useEncuesta';
 import Boton from '../components/Boton';
 
 const LoConoces = () => {
-    const { selectedColaborador, avanzarPagina, retrocederPagina } = useEncuesta();
+    const { selectedColaborador, avanzarPagina, retrocederPagina, colaboradores } = useEncuesta();
+    const otrosColaboradores = colaboradores.filter(c => c !== selectedColaborador);
 
     return (
         <div className="text-primaryColor flex flex-col items-center justify-center w-full h-screen bg-white">
@@ -45,10 +46,11 @@ const LoConoces = () => {
             </Boton>
 
             {/* Nombres de los colaboradores */}
-            <div className="absolute bottom-5 w-full flex justify-between px-10 text-gray-400 text-sm">
+            <div className="absolute bottom-5 w-full flex justify-between px-10  text-sm">
                 <span>{selectedColaborador}</span>
-                <span>Manuel Zorochaqui</span>
-                <span>Carlos Palma</span>
+                {otrosColaboradores.map((colaborador, index) => (
+                    <span className='text-gray-400' key={index}>{colaborador}</span>
+                ))}
             </div>
         </div>
     );

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { createContext, useState } from 'react';
 
 export const EncuestaContext = createContext();
@@ -5,6 +6,8 @@ export const EncuestaContext = createContext();
 export const EncuestaProvider = ({ children }) => {
     const [selectedColaborador, setSelectedColaborador] = useState(null);
     const [paginaActual, setPaginaActual] = useState(0);
+    const colaboradores = ['Carlos Palma', 'Jhonathan Quispe', 'Manuel Zorochaqui'];
+
 
     const avanzarPagina = () => {
         setPaginaActual((prev) => prev + 1);
@@ -26,6 +29,7 @@ export const EncuestaProvider = ({ children }) => {
                 paginaActual,
                 avanzarPagina,
                 retrocederPagina,
+                colaboradores
             }}
         >
             {children}

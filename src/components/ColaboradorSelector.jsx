@@ -1,9 +1,7 @@
 import useEncuesta from '../hooks/useEncuesta';
 
 const ColaboradorSelector = () => {
-    const { seleccionarColaborador, selectedColaborador } = useEncuesta();
-
-    const colaboradores = ['Carlos Palma', 'Jhonathan Quispe', 'Manuel Zorochaqui'];
+    const { seleccionarColaborador, selectedColaborador,colaboradores } = useEncuesta();
 
     return (
         <div>
