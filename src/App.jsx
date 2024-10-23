@@ -1,12 +1,12 @@
+import { EncuestaProvider } from './context/EncuestaContext';
+import Encuesta from './pages/Encuesta';
 
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </>
-  )
+    <EncuestaProvider>
+      <Encuesta />
+    </EncuestaProvider>
+  );
 }
 
-export default App
+export default App;
