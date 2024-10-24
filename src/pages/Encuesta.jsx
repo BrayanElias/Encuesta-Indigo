@@ -1,7 +1,10 @@
 import useEncuesta from '../hooks/useEncuesta';
 import ColaboradorSelector from '../components/ColaboradorSelector';
 import Boton from '../components/Boton';
-import LoConoces from './LoConoces'; 
+import LoConoces from './LoConoces';
+import Satisfaccion from './Satisfaccion';
+import ServiciosBrindados from './ServiciosBrindados';
+import Fortalezas from "./Fortalezas"
 
 const Encuesta = () => {
     const { selectedColaborador, avanzarPagina, paginaActual } = useEncuesta();
@@ -18,7 +21,7 @@ const Encuesta = () => {
         <>
             {paginaActual === 0 && (
                 <div className="flex flex-col items-center justify-normal w-full h-screen bg-white text-primaryColor">
-                    <img className="w-[150px] h-auto rounded-xl mt-7 mb-20" src="./images/logo.png" alt="Logo" />
+                    <img className="w-24 h-16 mt-10 mb-10  rounded-xl " src="./images/logo.png" alt="Logo" />
                     <h1 className="text-4xl font-medium text-center mb-5">Hola Alexandra!</h1>
                     <p className="text-lg text-center mb-20 px-10 max-w-4xl">
                         Has sido seleccionado para evaluar a los siguientes <span className="font-bold">colaboradores en sus responsabilidades.</span> <br />
@@ -32,7 +35,11 @@ const Encuesta = () => {
                 </div>
             )}
 
-            {paginaActual === 1 && <LoConoces />} {/* Mostrar la segunda página si estamos en la página 1 */}
+            {paginaActual === 1 && <LoConoces />}
+            {paginaActual === 2 && <Satisfaccion />}
+            {paginaActual === 3 && <ServiciosBrindados />}
+            {paginaActual === 4 && <Fortalezas />}
+
         </>
     );
 };
