@@ -14,7 +14,6 @@ const LoConoces = () => {
         if (!respuestaSeleccionada) {
             alert('Por favor, elige una respuesta');
         } else {
-            console.log('Respuesta seleccionada:', respuestaSeleccionada); // Depuración
             avanzarPagina();
         }
     };

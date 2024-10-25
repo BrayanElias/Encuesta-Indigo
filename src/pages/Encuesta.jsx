@@ -5,9 +5,11 @@ import LoConoces from './LoConoces';
 import Satisfaccion from './Satisfaccion';
 import ServiciosBrindados from './ServiciosBrindados';
 import Fortalezas from "./Fortalezas"
+import Gracias from './Gracias';
 
 const Encuesta = () => {
     const { selectedColaborador, avanzarPagina, paginaActual } = useEncuesta();
+
 
     const handleEvaluarClick = () => {
         if (!selectedColaborador) {
@@ -39,6 +41,7 @@ const Encuesta = () => {
             {paginaActual === 2 && <Satisfaccion />}
             {paginaActual === 3 && <ServiciosBrindados />}
             {paginaActual === 4 && <Fortalezas />}
+            {paginaActual === 5 && <Gracias />}
 
         </>
     );

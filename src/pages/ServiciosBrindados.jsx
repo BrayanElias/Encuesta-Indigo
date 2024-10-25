@@ -5,7 +5,7 @@ import Boton from "../components/Boton";
 
 
 const ServiciosBrindados = () => {
-    const { retrocederPagina, selectedColaborador, colaboradores, preguntasServiciosBrindados ,avanzarPagina} = useEncuesta();
+    const { retrocederPagina, selectedColaborador, colaboradores, preguntasServiciosBrindados, avanzarPagina } = useEncuesta();
     const otrosColaboradores = colaboradores.filter(c => c !== selectedColaborador);
 
     const [respuestas, setRespuestas] = useState({}); // Objeto para almacenar las respuestas seleccionadas
@@ -15,9 +15,14 @@ const ServiciosBrindados = () => {
     };
 
     const handleEvaluarClick = () => {
-        console.log('Botón "Continuar" clickeado');
-        avanzarPagina();
-        // Aquí puedes manejar la lógica para avanzar de página o cualquier otra acción.
+        const totalServiciosBrindados = preguntasServiciosBrindados.length;
+        const respuestasCompletas = Object.keys(respuestas).length === totalServiciosBrindados;
+        
+        if (respuestasCompletas) {
+            avanzarPagina();
+        } else {
+            alert('Por favor, responde todas las preguntas antes de continuar.');
+        }
     };
 
     return (
@@ -48,56 +53,60 @@ const ServiciosBrindados = () => {
                             <button
                                 type="button"
                                 className="text-xl p-1 rounded-full"
-                                onClick={() => handleSatisfaccion(index, 'happy')}
+                                onClick={() => handleSatisfaccion(index, 'verysad')}
                             >
                                 <img
                                     src="images/1.svg"
                                     alt=""
-                                    className={`fill-current ${respuestas[index] === 'happy' ? 'text-blue-500' : 'text-gray-400'}`} // Aplicar clase azul si está seleccionada
+                                    style={{ filter: respuestas[index] === 'verysad' ? 'grayscale(0%)' : 'grayscale(100%)' }}
                                 />
                             </button>
+
+                            <button
+                                type="button"
+                                className="text-xl p-1 rounded-full"
+                                onClick={() => handleSatisfaccion(index, 'sad')}
+                            >
+                                <img
+                                    src="images/2.svg"
+                                    alt=""
+                                    style={{ filter: respuestas[index] === 'sad' ? 'grayscale(0%)' : 'grayscale(100%)' }}
+                                />
+                            </button>
+
                             <button
                                 type="button"
                                 className="text-xl p-1 rounded-full"
                                 onClick={() => handleSatisfaccion(index, 'neutral')}
                             >
                                 <img
-                                    src="images/2.svg"
-                                    alt=""
-                                    className={`fill-current ${respuestas[index] === 'neutral' ? 'text-blue-500' : 'text-gray-400'}`} // Aplicar clase azul si está seleccionada
-                                />
-                            </button>
-                            <button
-                                type="button"
-                                className="text-xl p-1 rounded-full"
-                                onClick={() => handleSatisfaccion(index, 'sad')}
-                            >
-                                <img
                                     src="images/3.svg"
                                     alt=""
-                                    className={`fill-current ${respuestas[index] === 'sad' ? 'text-blue-500' : 'text-gray-400'}`} // Aplicar clase azul si está seleccionada
+                                    style={{ filter: respuestas[index] === 'neutral' ? 'grayscale(0%)' : 'grayscale(100%)' }}
                                 />
                             </button>
+
                             <button
                                 type="button"
                                 className="text-xl p-1 rounded-full"
-                                onClick={() => handleSatisfaccion(index, 'sad')}
+                                onClick={() => handleSatisfaccion(index, 'happy')}
                             >
                                 <img
                                     src="images/4.svg"
                                     alt=""
-                                    className={`fill-current ${respuestas[index] === 'sad' ? 'text-blue-500' : 'text-gray-400'}`} // Aplicar clase azul si está seleccionada
+                                    style={{ filter: respuestas[index] === 'happy' ? 'grayscale(0%)' : 'grayscale(100%)' }}
                                 />
                             </button>
+
                             <button
                                 type="button"
                                 className="text-xl p-1 rounded-full"
-                                onClick={() => handleSatisfaccion(index, 'sad')}
+                                onClick={() => handleSatisfaccion(index, 'veryhappy')}
                             >
                                 <img
                                     src="images/5.svg"
                                     alt=""
-                                    className={`fill-current ${respuestas[index] === 'sad' ? 'text-blue-500' : 'text-gray-400'}`} // Aplicar clase azul si está seleccionada
+                                    style={{ filter: respuestas[index] === 'veryhappy' ? 'grayscale(0%)' : 'grayscale(100%)' }}
                                 />
                             </button>
                         </div>

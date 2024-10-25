@@ -26,6 +26,10 @@ export const EncuestaProvider = ({ children }) => {
         'Conocen y cumplen con sus procedimientos'
     ];
 
+    const resetColaborador = () => {
+        setSelectedColaborador(null);  // Limpiar la selección
+    };
+
     const avanzarPagina = () => {
         setPaginaActual((prev) => {
             console.log('Avanzar página. Página actual:', prev + 1);  // Depuración
@@ -34,10 +38,10 @@ export const EncuestaProvider = ({ children }) => {
     };
 
     const retrocederPagina = () => {
-        setPaginaActual((prev) => {
-            console.log('Retroceder página. Página actual:', prev - 1);  // Depuración
-            return prev - 1;
-        });
+        if (paginaActual === 1) {
+            setSelectedColaborador(null);
+        }
+        setPaginaActual((prev) => prev - 1);
     };
 
     const seleccionarColaborador = (colaborador) => {
@@ -54,7 +58,8 @@ export const EncuestaProvider = ({ children }) => {
                 retrocederPagina,
                 colaboradores,
                 aspectos,
-                preguntasServiciosBrindados
+                preguntasServiciosBrindados,
+                resetColaborador
             }}
         >
             {children}
