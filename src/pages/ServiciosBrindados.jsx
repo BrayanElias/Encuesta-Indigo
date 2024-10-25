@@ -19,6 +19,7 @@ const ServiciosBrindados = () => {
         const respuestasCompletas = Object.keys(respuestas).length === totalServiciosBrindados;
 
         if (respuestasCompletas) {
+            console.log(respuestas);
             avanzarPagina();
         } else {
             alert('Por favor, responde todas las preguntas antes de continuar.');

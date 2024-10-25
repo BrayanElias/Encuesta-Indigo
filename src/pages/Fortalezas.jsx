@@ -22,6 +22,9 @@ const Fortalezas = () => {
             return;
         }
         else {
+            console.log(fortalezas);
+            console.log(oportunidades);
+            console.log(starRating);
             avanzarPagina()
         }
     };

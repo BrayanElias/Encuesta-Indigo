@@ -15,6 +15,7 @@ const Encuesta = () => {
         if (!selectedColaborador) {
             alert('Por favor, elige un colaborador');
         } else {
+            console.log(selectedColaborador);
             avanzarPagina();
         }
     };

@@ -19,6 +19,7 @@ const Satisfaccion = () => {
     const totalAspectos = aspectos.length;
     const respuestasCompletas = Object.keys(respuestas).length === totalAspectos;
     if (respuestasCompletas) {
+      console.log(respuestas);
       avanzarPagina();
     } else {
       alert('Por favor, responde todas las preguntas antes de continuar.');

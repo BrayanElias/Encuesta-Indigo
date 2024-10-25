@@ -5,7 +5,12 @@ export const EncuestaContext = createContext();
 
 export const EncuestaProvider = ({ children }) => {
     const [selectedColaborador, setSelectedColaborador] = useState(null);
+    // Nuevo estado para las respuestas
+    const [respuestas, setRespuestas] = useState({});
     const [paginaActual, setPaginaActual] = useState(0);
+    const totalPaginas = 6;
+    const progreso = (paginaActual / totalPaginas) * 100;
+
     const colaboradores = ['Carlos Palma', 'Jhonathan Quispe', 'Manuel Zorochaqui'];
 
     const preguntasServiciosBrindados = [
@@ -47,19 +52,33 @@ export const EncuestaProvider = ({ children }) => {
     const seleccionarColaborador = (colaborador) => {
         setSelectedColaborador(colaborador);
     };
-
+    // Función para guardar la respuesta de una página
+    const guardarRespuesta = (pagina, respuesta) => {
+        setRespuestas((prevRespuestas) => ({
+            ...prevRespuestas,
+            [selectedColaborador]: {
+                ...prevRespuestas[selectedColaborador],
+                [pagina]: respuesta,
+            }
+        }));
+    };
     return (
         <EncuestaContext.Provider
             value={{
                 selectedColaborador,
                 seleccionarColaborador,
                 paginaActual,
+                setPaginaActual,
                 avanzarPagina,
                 retrocederPagina,
                 colaboradores,
                 aspectos,
                 preguntasServiciosBrindados,
-                resetColaborador
+                resetColaborador,
+                respuestas,
+                guardarRespuesta,
+                totalPaginas,
+                progreso
             }}
         >
             {children}
