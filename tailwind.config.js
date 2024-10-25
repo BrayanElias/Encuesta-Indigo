@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         primaryColor: "#233758",
+        barFooterColor: "#3866F4"
       },
       fontFamily: {
         onest: ["Roboto", "sans-serif"],

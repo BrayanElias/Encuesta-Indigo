@@ -27,7 +27,7 @@ const Fortalezas = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-start h-screen bg-gray-100">
+        <div className="flex flex-col items-center justify-start h-screen bg-white text-primaryColor">
             <button
                 onClick={retrocederPagina}
                 className="absolute top-10 left-10 flex items-center text-primaryColor border border-[#3866F4] rounded-full px-4 py-2">
@@ -68,7 +68,13 @@ const Fortalezas = () => {
                 Continuar <img src="/images/arrowright.svg" alt="Arrow Right" className="inline ml-2" />
             </Boton>
 
-            <ColaboradorFooter selectedColaborador={selectedColaborador} otrosColaboradores={otrosColaboradores} />
+            <ColaboradorFooter
+                progresoPorColaborador={{
+                    'Colaborador 1': 10,
+                    'Colaborador 2': 40,
+                    'Colaborador 3': 90
+                }}
+                selectedColaborador={selectedColaborador} otrosColaboradores={otrosColaboradores} />
         </div>
     );
 };

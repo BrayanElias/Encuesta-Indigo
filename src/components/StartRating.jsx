@@ -16,9 +16,9 @@ const StartRating = ({ onRatingChange }) => {
           key={index}
           onClick={() => handleRating(index)}
           className={`h-8 w-8 cursor-pointer ${index < rating ? 'text-yellow-500' : 'text-gray-300'}`}
-          src="/images/start.svg"
+          src="images/start.svg"
           alt=""
-          style={{ filter: index < rating ? 'grayscale(0%)' : 'grayscale(50%)' }}
+          style={{ filter: index < rating ? 'grayscale(0%)' : 'grayscale(100%)' }}
         />
       ))}
     </div>

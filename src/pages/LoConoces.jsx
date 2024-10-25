@@ -45,7 +45,14 @@ const LoConoces = () => {
                         Continuar <img src="/images/arrowright.svg" alt="Arrow Right" className="inline ml-2" />
                     </Boton>
 
-                    <ColaboradorFooter selectedColaborador={selectedColaborador} otrosColaboradores={otrosColaboradores} />
+                    <ColaboradorFooter
+                        progresoPorColaborador={{
+                            'Colaborador 1': 10,
+                            'Colaborador 2': 40,
+                            'Colaborador 3': 90
+                        }}
+                        selectedColaborador={selectedColaborador}
+                        otrosColaboradores={otrosColaboradores} />
                 </div>
             )}
         </>
