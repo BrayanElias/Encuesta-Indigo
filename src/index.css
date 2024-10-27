@@ -12,3 +12,18 @@
   font-family: "Roboto", "sans-serif";
 }
 
+.container {
+  @apply flex flex-col items-center justify-normal mx-auto w-full h-screen bg-white text-primaryColor;
+}
+.logo-class {
+  @apply w-24 h-16 mt-10 mb-10 rounded-xl;
+}
+.saludo-heading {
+  @apply text-4xl font-medium text-center mb-5;
+}
+.evaluation-instructions {
+  @apply text-lg text-center mb-20 px-10 max-w-4xl;
+}
+.button-continuar {
+  @apply bg-blue-600 text-white px-8 py-3 rounded-full;
+}

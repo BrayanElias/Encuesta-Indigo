@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 
 const Boton = ({ onClick, children, className = "" }) => {
     return (

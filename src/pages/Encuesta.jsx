@@ -8,44 +8,44 @@ import Fortalezas from "./Fortalezas"
 import Gracias from './Gracias';
 
 const Encuesta = () => {
-    const { selectedColaborador, avanzarPagina, paginaActual } = useEncuesta();
+  const { selectedColaborador, avanzarPagina, paginaActual, guardarRespuestaPagina, respuestaSeleccionada,progreso } = useEncuesta();
 
+  const handleEvaluarClick = () => {
+    if (!selectedColaborador) {
+      alert('Por favor, elige un colaborador');
+    } else {
+      guardarRespuestaPagina(paginaActual, { respuesta: respuestaSeleccionada });
+      avanzarPagina();
+      console.log(progreso);
+      
+    }
+  };
 
-    const handleEvaluarClick = () => {
-        if (!selectedColaborador) {
-            alert('Por favor, elige un colaborador');
-        } else {
-            console.log(selectedColaborador);
-            avanzarPagina();
-        }
-    };
+  return (
+    <>
+      {paginaActual === 0 && (
+        <div className="container">
+          <img className="logo-class" src="./images/logo.png" alt="Logo" />
+          <h1 className="saludo-heading">Hola Alexandra!</h1>
+          <p className="evaluation-instructions">
+            Has sido seleccionado para evaluar a los siguientes <span className="font-bold">colaboradores en sus responsabilidades.</span> <br />
+            Por favor contestar las preguntas de forma objetiva tomando en cuenta <span className="font-semibold">interacción</span> y el <span className="font-semibold">servicio</span> que has recibido <span className="font-semibold">durante el año 2024</span>.
+          </p>
+          <ColaboradorSelector />
+          <Boton onClick={handleEvaluarClick} className="mt-14">
+            Evaluar
+            <img src="/images/arrowright.svg" alt="Arrow Right" />
+          </Boton>
+        </div>
+      )}
 
-    return (
-        <>
-            {paginaActual === 0 && (
-                <div className="flex flex-col items-center justify-normal w-full h-screen bg-white text-primaryColor">
-                    <img className="w-24 h-16 mt-10 mb-10  rounded-xl " src="./images/logo.png" alt="Logo" />
-                    <h1 className="text-4xl font-medium text-center mb-5">Hola Alexandra!</h1>
-                    <p className="text-lg text-center mb-20 px-10 max-w-4xl">
-                        Has sido seleccionado para evaluar a los siguientes <span className="font-bold">colaboradores en sus responsabilidades.</span> <br />
-                        Por favor contestar las preguntas de forma objetiva tomando en cuenta <span className="font-semibold">interacción</span> y el <span className="font-semibold">servicio</span> que has recibido <span className="font-semibold">durante el año 2024</span>.
-                    </p>
-                    <ColaboradorSelector />
-                    <Boton onClick={handleEvaluarClick} className="mt-14">
-                        Evaluar
-                        <img src="/images/arrowright.svg" alt="Arrow Right" />
-                    </Boton>
-                </div>
-            )}
-
-            {paginaActual === 1 && <LoConoces />}
-            {paginaActual === 2 && <Satisfaccion />}
-            {paginaActual === 3 && <ServiciosBrindados />}
-            {paginaActual === 4 && <Fortalezas />}
-            {paginaActual === 5 && <Gracias />}
-
-        </>
-    );
+      {paginaActual === 1 && <LoConoces />}
+      {paginaActual === 2 && <Satisfaccion />}
+      {paginaActual === 3 && <ServiciosBrindados />}
+      {paginaActual === 4 && <Fortalezas />}
+      {paginaActual === 5 && <Gracias />}
+    </>
+  );
 };
 
 export default Encuesta;
