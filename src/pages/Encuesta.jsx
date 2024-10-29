@@ -8,16 +8,14 @@ import Fortalezas from "./Fortalezas"
 import Gracias from './Gracias';
 
 const Encuesta = () => {
-  const { selectedColaborador, avanzarPagina, paginaActual, guardarRespuestaPagina, respuestaSeleccionada,progreso } = useEncuesta();
+  const { selectedColaborador, avanzarPagina, paginaActual, guardarRespuestaPagina } = useEncuesta();
 
   const handleEvaluarClick = () => {
     if (!selectedColaborador) {
       alert('Por favor, elige un colaborador');
     } else {
-      guardarRespuestaPagina(paginaActual, { respuesta: respuestaSeleccionada });
+      guardarRespuestaPagina(paginaActual, { respuesta: selectedColaborador });
       avanzarPagina();
-      console.log(progreso);
-      
     }
   };
 
@@ -32,7 +30,7 @@ const Encuesta = () => {
             Por favor contestar las preguntas de forma objetiva tomando en cuenta <span className="font-semibold">interacción</span> y el <span className="font-semibold">servicio</span> que has recibido <span className="font-semibold">durante el año 2024</span>.
           </p>
           <ColaboradorSelector />
-          <Boton onClick={handleEvaluarClick} className="mt-14">
+          <Boton onClick={handleEvaluarClick}>
             Evaluar
             <img src="/images/arrowright.svg" alt="Arrow Right" />
           </Boton>

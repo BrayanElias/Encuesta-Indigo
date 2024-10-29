@@ -94,14 +94,17 @@ export const EncuestaProvider = ({ children }) => {
   };
 
   // Función para guardar la respuesta de una página específica
+
   const guardarRespuestaPagina = (pagina, respuesta) => {
-    setRespuestas((prevRespuestas) => ({
-      ...prevRespuestas,
-      [selectedColaborador]: {
-        ...prevRespuestas[selectedColaborador],
-        [pagina]: respuesta,  // Asigna la respuesta a la página actual del colaborador seleccionado
-      }
-    }));
+    setRespuestas(prevRespuestas => {
+      const updatedRespuestas = {
+        ...prevRespuestas,
+        [pagina]: respuesta,
+      };
+      console.log(`Respuesta guardada para la página ${pagina}:`, respuesta); // Mostrar respuesta en consola
+      console.log('Todas las respuestas hasta ahora:', updatedRespuestas); // Mostrar todas las respuestas
+      return;
+    });
   };
 
   // Función para verificar si todos los colaboradores han completado la encuesta

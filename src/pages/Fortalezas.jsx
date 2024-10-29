@@ -14,6 +14,8 @@ const Fortalezas = () => {
     verificarProgresoCompleto,
     progreso,
     irAPaginaSeleccionColaborador,
+    guardarRespuestaPagina,
+    paginaActual
   } = useEncuesta();
 
   const [fortalezas, setFortalezas] = useState('');
@@ -30,7 +32,7 @@ const Fortalezas = () => {
     if (!verificarProgresoCompleto()) {
       alert("Por favor, completa todas las evaluaciones antes de continuar.");
       irAPaginaSeleccionColaborador();
-      console.log(progreso);
+      guardarRespuestaPagina(paginaActual, { respuesta: fortalezas, starRating, oportunidades });
     } else {
       avanzarPagina();
     }

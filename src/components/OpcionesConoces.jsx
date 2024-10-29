@@ -11,7 +11,7 @@ const OpcionesConoces = ({ onRespuestaSeleccionada }) => {
     };
 
     return (
-        <div className="flex space-x-4 mb-10">
+        <div className="flex flex-col gap-2 px-7 mb-10 md:flex-row md:mb-3">
             <label
                 className={`cursor-pointer flex items-center space-x-2 px-7 py-4 border rounded-full ${selectedOption === 'si' ? 'border-blue-600' : ''}`}
             >

@@ -7,7 +7,7 @@ import HeaderName from "../components/HeaderName"
 import SatisfactionButtons from '../components/SatisfactionButtons';
 
 const Satisfaccion = () => {
-  const { selectedColaborador, colaboradores, aspectos, avanzarPagina , progreso} = useEncuesta();
+  const { selectedColaborador, colaboradores, aspectos, avanzarPagina } = useEncuesta();
 
   const otrosColaboradores = colaboradores.filter(c => c !== selectedColaborador);
   const [respuestas, setRespuestas] = useState({}); // Objeto para almacenar las respuestas seleccionadas
@@ -22,7 +22,7 @@ const Satisfaccion = () => {
     const respuestasCompletas = Object.keys(respuestas).length === totalAspectos;
     if (respuestasCompletas) {
       avanzarPagina();
-      console.log(progreso);
+      console.log(respuestas);
     } else {
       alert('Por favor, responde todas las preguntas antes de continuar.');
     }
@@ -33,7 +33,7 @@ const Satisfaccion = () => {
     <div className="container">
       <BackPagButton />
       <HeaderName />
-      <img className="w-[80px] h-auto rounded-xl mt-3 mb-3" src="./images/logo.png" alt="Logo" />
+      <img className="logo-class" src="./images/logo.png" alt="Logo" />
       <h1 className="text-xl font-normal mb-2 text-center">¿Qué tan satisfecho te sientes en los siguiente aspectos?</h1>
 
       <div className="w-full max-w-4xl"> {/* Contenedor para limitar el ancho */}

@@ -7,7 +7,7 @@ import HeaderName from "../components/HeaderName"
 import BackPageButton from "../components/BackPageButton"
 
 const ServiciosBrindados = () => {
-    const { selectedColaborador, colaboradores, preguntasServiciosBrindados, avanzarPagina, progreso } = useEncuesta();
+    const { selectedColaborador, colaboradores, preguntasServiciosBrindados, avanzarPagina } = useEncuesta();
     const otrosColaboradores = colaboradores.filter(c => c !== selectedColaborador);
 
     const [respuestas, setRespuestas] = useState({}); // Objeto para almacenar las respuestas seleccionadas
@@ -22,7 +22,6 @@ const ServiciosBrindados = () => {
 
         if (respuestasCompletas) {
             console.log(respuestas);
-            console.log(progreso);
             avanzarPagina();
         } else {
             alert('Por favor, responde todas las preguntas antes de continuar.');

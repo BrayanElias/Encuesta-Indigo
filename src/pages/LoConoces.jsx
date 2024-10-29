@@ -13,7 +13,6 @@ const LoConoces = () => {
     colaboradores,
     paginaActual,
     guardarRespuestaPagina,
-    progreso
   } = useEncuesta();
 
   const otrosColaboradores = colaboradores.filter(c => c !== selectedColaborador);
@@ -25,7 +24,6 @@ const LoConoces = () => {
     } else {
       guardarRespuestaPagina(paginaActual, { respuesta: respuestaSeleccionada });
       avanzarPagina();
-      console.log(progreso);
     }
   };
 
@@ -33,8 +31,8 @@ const LoConoces = () => {
     <>
       {paginaActual === 1 && (
         <div className="container">
-          <BackPageButton />
-          <HeaderName />
+            <BackPageButton />
+            <HeaderName />
           <img className="logo-class" src="./images/logo.png" alt="Logo" />
           <h2 className="text-2xl font-normal text-center mb-8">
             ¿Conoces las actividades desempeñadas por <span className="font-medium">{selectedColaborador}</span>?

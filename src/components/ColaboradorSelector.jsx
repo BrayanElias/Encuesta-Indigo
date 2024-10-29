@@ -9,7 +9,7 @@ const ColaboradorSelector = () => {
     } = useEncuesta();
 
     return (
-        <div>
+        <div className="flex flex-col gap-2 md:flex-row">
             {colaboradores.map((colaborador) => (
                 <label 
                     key={colaborador} 
