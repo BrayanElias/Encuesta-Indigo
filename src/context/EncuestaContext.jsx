@@ -19,21 +19,21 @@ export const EncuestaProvider = ({ children }) => {
   // Cargar los nombres desde el archivo JSON
   useEffect(() => {
     async function fetchNombres() {
-      const response = await fetch('/src/data/nombres.json');
+      const response = await fetch('/data/nombres.json');
       const data = await response.json();
       setNombres(data.nombres);
     }
     fetchNombres();
   }, []);
 
-    // Efecto para obtener un nombre aleatorio solo una vez al inicio
-    useEffect(() => {
-      if (nombres.length > 0) {
-        const indiceAleatorio = Math.floor(Math.random() * nombres.length);
-        setNombreAleatorio(nombres[indiceAleatorio]);
-      }
-    }, [nombres]); // Se ejecuta cuando los nombres se cargan
-  
+  // Efecto para obtener un nombre aleatorio solo una vez al inicio
+  useEffect(() => {
+    if (nombres.length > 0) {
+      const indiceAleatorio = Math.floor(Math.random() * nombres.length);
+      setNombreAleatorio(nombres[indiceAleatorio]);
+    }
+  }, [nombres]); // Se ejecuta cuando los nombres se cargan
+
 
   // Estado para almacenar el colaborador seleccionado (inicialmente null)
   const [selectedColaborador, setSelectedColaborador] = useState(null);
