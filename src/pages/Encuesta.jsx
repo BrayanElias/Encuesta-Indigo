@@ -30,7 +30,7 @@ const Encuesta = () => {
             Por favor contestar las preguntas de forma objetiva tomando en cuenta <span className="font-semibold">interacción</span> y el <span className="font-semibold">servicio</span> que has recibido <span className="font-semibold">durante el año 2024</span>.
           </p>
           <ColaboradorSelector />
-          <Boton onClick={handleEvaluarClick}>
+          <Boton onClick={handleEvaluarClick} className='button-continuar'>
             Evaluar
             <img src="/images/arrowright.svg" alt="Arrow Right" />
           </Boton>

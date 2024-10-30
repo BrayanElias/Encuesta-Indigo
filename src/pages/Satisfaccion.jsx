@@ -33,7 +33,7 @@ const Satisfaccion = () => {
     <div className="container">
       <BackPagButton />
       <HeaderName />
-      <img className="logo-class" src="./images/logo.png" alt="Logo" />
+      <img className="logo-class md:mb-2" src="./images/logo.png" alt="Logo" />
       <h1 className="text-xl font-normal mb-2 text-center">¿Qué tan satisfecho te sientes en los siguiente aspectos?</h1>
 
       <div className="w-full max-w-4xl"> {/* Contenedor para limitar el ancho */}
@@ -55,7 +55,7 @@ const Satisfaccion = () => {
           </div>
         ))}
       </div>
-      <Boton onClick={handleEvaluarClick} className="button-continuar">
+      <Boton onClick={handleEvaluarClick} className="button-continuar md:mt-2">
         Continuar <img src="/images/arrowright.svg" alt="Arrow Right" className="inline ml-2" />
       </Boton>
       <ColaboradorFooter

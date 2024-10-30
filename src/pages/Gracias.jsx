@@ -13,7 +13,7 @@ const Gracias = () => {
             </p>
 
             <form className="flex flex-col items-center">
-                <button className="bg-blue-500 text-white px-7 py-3 rounded-3xl flex items-center pl-9">
+                <button className="button-continuar">
                     Inteligo
                 </button>
             </form>

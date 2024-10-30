@@ -44,7 +44,7 @@ const Fortalezas = () => {
       <HeaderName />
       <img className="logo-class" src="./images/logo.png" alt="Logo" />
       <h1 className="text-xl mb-10 text-center">Escribe las fortalezas y oportunidades de mejora.</h1>
-      <div className="flex space-x-4 justify-center w-3/5">
+      <div className="flex space-x-4 justify-center w-full md:w-3/5 border border-black">
         <div className="w-full relative">
           <p className="absolute -top-2 left-6 bg-white px-3 text-blue-500 text-sm font-medium rounded-xl">Fortalezas</p>
           <textarea
@@ -60,17 +60,17 @@ const Fortalezas = () => {
             value={oportunidades}
             onChange={(e) => setOportunidades(e.target.value)}
             placeholder="Escribe aquí tus oportunidades de mejora..."
-            className="text-xs outline-none border hover:border-blue-500 transition-all duration-500 cursor-pointer rounded-lg p-6 resize-none w-full h-40 overflow-hidden"
+            className="text-xs outline-none border hover:border-blue-500 transition-all duration-500 cursor-pointer rounded-lg p-10 md:p-6 resize-none w-full h-40 overflow-hidden"
           />
         </div>
       </div>
       <div>
-        <h1 className="text-xl mb-5 mt-10">
+        <h1 className="text-xl mb-5 mt-10 text-center">
           ¿Qué tan satisfecho te sientes con el desempeño de <span className='font-medium'>{selectedColaborador}</span>?
         </h1>
         <StartRating onRatingChange={setStarRating} />
       </div>
-      <Boton onClick={handleEvaluarClick} className="mt-5 bg-blue-600 text-white px-8 py-3 rounded-full">
+      <Boton onClick={handleEvaluarClick} className="button-continuar md:mt-6">
         Continuar <img src="/images/arrowright.svg" alt="Arrow Right" className="inline ml-2" />
       </Boton>
       <ColaboradorFooter
