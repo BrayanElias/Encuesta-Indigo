@@ -44,7 +44,7 @@ const Fortalezas = () => {
       <HeaderName />
       <img className="logo-class" src="./images/logo.png" alt="Logo" />
       <h1 className="text-xl mb-10 text-center">Escribe las fortalezas y oportunidades de mejora.</h1>
-      <div className="flex space-x-4 justify-center w-full md:w-3/5 border border-black">
+      <div className="flex space-x-4 justify-center w-full md:w-3/5">
         <div className="w-full relative">
           <p className="absolute -top-2 left-6 bg-white px-3 text-blue-500 text-sm font-medium rounded-xl">Fortalezas</p>
           <textarea
