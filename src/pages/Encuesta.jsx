@@ -24,7 +24,7 @@ const Encuesta = () => {
       {paginaActual === 0 && (
         <div className="container">
           <img className="logo-class" src="./images/logo.png" alt="Logo" />
-          <h1 className="saludo-heading">Hola {nombreAleatorio}</h1>
+          <h1 className="saludo-heading">Hola {nombreAleatorio} !</h1>
           <p className="evaluation-instructions">
             Has sido seleccionado para evaluar a los siguientes <span className="font-bold">colaboradores en sus responsabilidades.</span> <br />
             Por favor contestar las preguntas de forma objetiva tomando en cuenta <span className="font-semibold">interacción</span> y el <span className="font-semibold">servicio</span> que has recibido <span className="font-semibold">durante el año 2024</span>.

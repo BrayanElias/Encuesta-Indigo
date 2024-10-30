@@ -13,7 +13,7 @@ const OpcionesConoces = ({ onRespuestaSeleccionada }) => {
     return (
         <div className="flex flex-col gap-2 px-7 mb-10 md:flex-row md:mb-3">
             <label
-                className={`cursor-pointer flex items-center space-x-2 px-7 py-4 border rounded-full ${selectedOption === 'si' ? 'border-blue-600' : ''}`}
+                className={`cursor-pointer flex items-center space-x-2 px-7 py-4 drop-shadow border rounded-full ${selectedOption === 'si' ? 'border-blue-600' : ''}`}
             >
                 <input
                     type="radio"
@@ -25,7 +25,7 @@ const OpcionesConoces = ({ onRespuestaSeleccionada }) => {
                 <span>Sí</span>
             </label>
             <label
-                className={`cursor-pointer flex items-center space-x-2 px-7 py-4 border rounded-full ${selectedOption === 'no' ? 'border-blue-600' : ''}`}
+                className={`cursor-pointer flex items-center space-x-2 px-7 py-4 drop-shadow border rounded-full ${selectedOption === 'no' ? 'border-blue-600' : ''}`}
             >
                 <input
                     type="radio"
@@ -37,7 +37,7 @@ const OpcionesConoces = ({ onRespuestaSeleccionada }) => {
                 <span>No</span>
             </label>
             <label
-                className={`cursor-pointer flex items-center space-x-2 px-7 py-4 border rounded-full ${selectedOption === 'no-debo' ? 'border-blue-600' : ''}`}
+                className={`cursor-pointer flex items-center space-x-2 px-7 py-4 drop-shadow border rounded-full ${selectedOption === 'no-debo' ? 'border-blue-600' : ''}`}
             >
                 <input
                     type="radio"
