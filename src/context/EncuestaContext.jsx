@@ -1,9 +1,39 @@
 /* eslint-disable react/prop-types */
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 export const EncuestaContext = createContext();
 
 export const EncuestaProvider = ({ children }) => {
+
+  // setear los nombres de la base de datos
+  const [nombres, setNombres] = useState([]);
+  const [nombreAleatorio, setNombreAleatorio] = useState('');
+
+
+  // Función para obtener un nombre aleatorio
+  const obtenerNombreAleatorio = () => {
+    const indiceAleatorio = Math.floor(Math.random() * nombres.length);
+    return nombres[indiceAleatorio];
+  };
+
+  // Cargar los nombres desde el archivo JSON
+  useEffect(() => {
+    async function fetchNombres() {
+      const response = await fetch('/src/data/nombres.json');
+      const data = await response.json();
+      setNombres(data.nombres);
+    }
+    fetchNombres();
+  }, []);
+
+    // Efecto para obtener un nombre aleatorio solo una vez al inicio
+    useEffect(() => {
+      if (nombres.length > 0) {
+        const indiceAleatorio = Math.floor(Math.random() * nombres.length);
+        setNombreAleatorio(nombres[indiceAleatorio]);
+      }
+    }, [nombres]); // Se ejecuta cuando los nombres se cargan
+  
 
   // Estado para almacenar el colaborador seleccionado (inicialmente null)
   const [selectedColaborador, setSelectedColaborador] = useState(null);
@@ -132,9 +162,12 @@ export const EncuestaProvider = ({ children }) => {
         progreso,                     // Porcentaje de progreso en la encuesta
         colaboradoresCompletados,     // Lista de colaboradores que han completado la encuesta
         verificarProgresoCompleto,     // Función para verificar si todos han completado
+        obtenerNombreAleatorio,        // Función para traer un nombre aleatorio 
+        nombreAleatorio                        // Llamar a un nombre aleatorio que viene de la base
       }}
     >
       {children}
     </EncuestaContext.Provider>
   );
 };
+
